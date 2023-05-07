@@ -1,5 +1,9 @@
 class Api::V1::InvoicesController < ApplicationController
-  skip_before_action :verify_athenticity_token
+
+  # Rescue from AASM exceptions
+  rescue_from AASM::InvalidTransition do |exception|
+    render json: { error: exception.message }, status: :unprocessable_entity
+  end
 
   # GET /api/v1/invoices
   def index

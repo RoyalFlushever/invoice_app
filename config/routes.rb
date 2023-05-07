@@ -5,10 +5,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :invoices do
         member do
-          post :approve
-          post :reject
-          post :purchase
-          post :close
+          post :create
+          put :approve
+          put :reject
+          put :purchase
+          put :close
         end
       end
     end

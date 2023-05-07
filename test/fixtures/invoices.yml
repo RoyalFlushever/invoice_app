@@ -1,16 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   number: Inv-001
   amount: 9.99
-  due_date: 2023-05-07
+  due_date: 2023-06-29
 
 two:
+  id: 2
   number: Inv-002
   amount: 9.99
   due_date: 2023-05-21
 
 three:
+  id: 3
   number: Inv-003
   amount: 9.99
   due_date: 2023-05-01
