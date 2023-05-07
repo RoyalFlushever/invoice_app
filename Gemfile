@@ -12,6 +12,9 @@ gem "sqlite3", "~> 1.4"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+gem 'aasm'
+gem 'rack-cors'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
@@ -46,3 +49,6 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 5.0'
+end
