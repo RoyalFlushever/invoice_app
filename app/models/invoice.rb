@@ -37,6 +37,10 @@ class Invoice < ApplicationRecord
     end
   end
 
+  def scan_filename
+    scan.attached? && scan.attachment.filename
+  end
+
   def has_invoice_scan?
     scan.attached? && (scan.content_type == 'application/pdf' || scan.content_type.start_with?('image/'))
   end

@@ -13,7 +13,7 @@ class Api::V1::InvoicesController < ApplicationController
 
   # GET /api/v1/invoices/:id
   def show
-    @invoice = Invoice.find(params[:id])
+    @invoice = Invoice.find(params[:id]).as_json(methods: [:scan_filename])
     render json: @invoice
   end
 
@@ -63,7 +63,7 @@ class Api::V1::InvoicesController < ApplicationController
     if @invoice.close!
       render json: @invoice, status: :ok
     else
-      rejectnder json: @invoice.errors, status: :unprocessable_entity
+      reject json: @invoice.errors, status: :unprocessable_entity
     end
   end
 
