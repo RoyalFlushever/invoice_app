@@ -4,7 +4,7 @@ import Dropzone from "react-dropzone";
 import { useNavigate, Link } from "react-router-dom";
 import { createInvoice } from "../api/InvoiceAPI";
 
-const CreateInvoice = ({ setInvoices }) => {
+const CreateInvoice = () => {
   // State variables
   const [invoiceNumber, setInvoiceNumber] = useState("");
   const [invoiceAmount, setInvoiceAmount] = useState("");
@@ -45,8 +45,6 @@ const CreateInvoice = ({ setInvoices }) => {
     // Post form data to api
     createInvoice(formData)
       .then((response) => {
-        // Add new invoice to state
-        setInvoices((prevInvoices) => [...prevInvoices, response]);
         // Reset form fields
         setInvoiceNumber("");
         setInvoiceAmount("");
@@ -111,7 +109,7 @@ const CreateInvoice = ({ setInvoices }) => {
             <Dropzone onDrop={handleDrop}>
               {({ getRootProps, getInputProps }) => (
                 <div {...getRootProps()} className="dropzone">
-                  <input {...getInputProps()} />
+                  <input data-testid="dropzone" {...getInputProps()} />
                   {invoiceScan ? (
                     <div className="file-info">
                       <span>{invoiceScan.name}</span>
@@ -133,7 +131,7 @@ const CreateInvoice = ({ setInvoices }) => {
             </Dropzone>
           </div>
           <button type="submit" className="btn btn-primary">
-            Create Invoice
+            Submit
           </button> {" "}
           <Link to="/" className="btn btn-link">
             Back to List

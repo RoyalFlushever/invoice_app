@@ -33,7 +33,7 @@ class Api::V1::InvoicesController < ApplicationController
     if @invoice.approve!
       render json: @invoice, status: :ok
     else
-      render json: @invoice.errors, status: :unprocessable_entity
+      render json: @invoice.errors, message: 'hey there', status: :unprocessable_entity
     end
   end
 

@@ -19,6 +19,7 @@ const InvoiceDetail = () => {
   useEffect(() => {
     getInvoice(id)
       .then((response) => {
+        debugger;
         setInvoice(response);
       })
       .catch((error) => {

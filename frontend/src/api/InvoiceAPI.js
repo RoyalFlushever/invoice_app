@@ -1,5 +1,4 @@
-export const baseURL = "https://d70b-38-75-137-97.ngrok-free.app/api/v1";
-
+export const baseURL = "http://localhost:3000/api/v1";
 
 export async function getInvoice(id) {
   try {
